@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+/* header */
+#header {
+	background: url(../img/header_bg.jpg) no-repeat center bottom;
+	background-size: cover;
+	padding-bottom: 40px;
+	}
+#header h1 {
+	text-align: center;
+	margin: 0 auto;
+	background-color: rgba(0,0,0,0.7);
+	}
+#header h2 {
+	text-align: center;
+	margin: 30px auto;
+	}
+#header p#header_description {
+	display: inline-block;
+	border: 1px solid #333;
+	padding: 8px 10px;
+	font-size: 11px;
+	font-weight: bold;
+	color: #333;
+	margin-top: 20px;
+	}
+
+/* sec01 */
+#sec01 {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 20px;
+	background: url(../img/line.png) no-repeat center bottom #000;
+	}
+#sec01 p {
+	text-align: left;
+	margin: 20px 10px 10px;
+	color: #ccc;
+	}
+
+/* sec02 */
+#sec02 {
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+	background-color: #000;
+	}
+#sec02 p {
+	text-align: left;
+	margin: 0 10px 20px;
+	padding-top: 10px;
+	color: #ccc;
+	}
+
+/* sec03 */
+#sec03 {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 40px;
+	background: url(../img/sec03_bg.jpg) no-repeat center top;
+	background-size: 800px auto;
+	}
+#sec03 p {
+	text-align: left;
+	margin: 20px 10px 10px;
+	background-image: url(../img/sec03_icon.png);
+	background-repeat: no-repeat;
+	background-position: center 15px;
+	background-size: 260px auto;
+	background-color: rgba(255,255,255,0.8);
+	padding: 100px 15px 15px;
+	}
+#sec03 p span {
+	font-weight: bold;
+	}
+
+/* sec04 */
+#sec04 {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 20px;
+	background-color: #000;
+	}
+#sec04 table {
+	width: 100%;
+	margin: 30px 0 0;
+	}
+#sec04 table th {
+	width: 90px;
+	padding: 3px 10px 0;
+	text-align: center;
+	vertical-align: top;
+	}
+#sec04 table td {
+	text-align: left;
+	font-size: 12px;
+	color: #ccc;
+	padding: 0 10px 30px 0;
+	line-height: 1.8em;
+	}
+#sec04 table td span {
+	font-weight: bold;
+	}
+#sec04 p {
+	background: url(../img/line.png) no-repeat center top #000;
+	padding-top: 20px;
+	}
+#sec04 dl dt {
+	color: #ccc;
+	font-weight: bold;
+	margin: 20px 0 10px;
+	}
+#sec04 dl dd {
+	text-align: left;
+	color: #ccc;
+	margin: 0 10px;
+	}
+
+/* sec05 */
+#sec05 {
+	margin: 0 auto;
+	text-align: center;
+	background: url(../img/sec05_bg.jpg) no-repeat center 80px #e3e6e9;
+	background-size: 400px auto;
+	}
+#sec05 p {
+	text-align: left;
+	margin-top: 260px;
+	color: #ccc;
+	padding: 15px;
+	background: url(../img/line.png) no-repeat center bottom #000;
+	}
+#sec05 p span {
+	font-weight: bold;
+	}
+
+/* sec06 */
+#sec06 {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 30px;
+	background-color: #000;
+	}
+#sec06 h3 {
+	color: #ccc;
+	background-color: #141414;
+	padding: 4px 10px;
+	margin: 30px 0 10px;
+	text-align: left;
+	}
+#sec06 h3:nth-of-type(2) {
+	text-align: right;
+	}
+#sec06 dl {
+	margin: 0 10px;
+	}
+#sec06 dl dt {
+	float: left;
+	margin: 0 18px 8px 0;
+	}
+#sec06 dl dd {
+	color: #ccc;
+	text-align: left;
+	}
+
+/* sec07 */
+#sec07 {
+	margin: 0 auto;
+	text-align: center;
+	padding-bottom: 20px;
+	}
+#sec07 dl {
+	margin: 20px 10px;
+	}
+#sec07 dl dt {
+	text-align: left;
+	font-weight: bold;
+	}
+#sec07 dl dd {
+	text-align: left;
+	margin: 0 0 18px 7px;
+	}
+
+/* footer */
+#footer {
+	border-top: 1px solid #b4b4b9;
+	padding: 15px 0;
+	}
+#footer p {
+	color: #8f8f98;
+	font-size: 11px;
+	}
+
+/*clearfix setup */
+#sec06 dl:after {
+	content: ".";
+	font-size: 0.1em;
+	line-height: 0;
+	display: block;
+	height: 0.1px;
+	visibility: hidden;
+	clear: both;
+	zoom:1;
+	}
+#sec06 dl {
+	zoom:1;
+	}
+
+/* modified: SNS */
+#sec_sns {
+	padding: 20px 0 0 0;
+	height: 20px;
+}
+
+#sec_sns ul {
+	height: 20px;	
+}
+#sec_sns li {
+	height: 20px;
+	overflow: hidden;
+	position: relative;
+
+	width: 50%;
+	float: right;
+}
+#sec_sns li iframe {
+	position: absolute !important;
+	left: 50%;
+	margin-left: -50px;
+}
+#sec_sns li#sec_sns_left iframe {
+	margin-left: -70px;
+}
+#sec_sns li#sec_sns_right iframe {
+	margin-left: -30px;
+}
+.fb_iframe_widget iframe {
+	min-width: 110px !important;
+	min-height: 20px !important;
+	width: 1000px;
+	height: 1000px;
+}
+
+#container {
+	clear: both;
+}

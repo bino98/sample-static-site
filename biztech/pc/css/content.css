@@ -1,0 +1,384 @@
+@charset "UTF-8";
+
+/* nav */
+
+ul.nav {
+	z-index: 99;
+	position: fixed;
+	top: 50%;
+	right: 0;
+	margin-top: -180px;
+	}
+ul.nav li {
+	background-color: #111;
+	padding: 10px 15px;
+	cursor: pointer;
+	font-size: 20px;
+	color: #ccc;
+	}
+ul.nav li:hover {
+	background-color: #222;
+	}
+ul.nav li:hover:nth-child(2n) {
+	color: #f66;
+	}
+ul.nav li:hover:nth-child(3n) {
+	color: #3fc;
+	}
+ul.nav li:hover:nth-child(4n) {
+	color: #fc6;
+	}
+ul.nav li:hover:nth-child(5n) {
+	color: #99f;
+	}
+ul.nav li:hover:nth-child(6n) {
+	color: #666;
+	}
+ul.nav li:hover:nth-child(7n) {
+	color: #6cf;
+	}
+.anchor_btn {
+	padding-left: 3px;
+	font-weight: bold;
+	}
+
+/* header */
+
+#header {
+	z-index: 0;
+	position: relative;
+	background: url(../img/sec01_bg.jpg) top no-repeat;
+	width: 100%;
+	height: 910px;
+	}
+#head {
+	z-index: 1;
+	width: 100%;
+	height: 90px;
+	position: absolute;
+	top: 0;
+	}
+#head h1 {
+	text-align: center;
+	margin: 0 auto;
+	padding: 45px 0;
+	background: url(../img/head_bg.png) repeat-x top;
+	}
+#sec01 {
+	width: 100%;
+	position: absolute;
+	top: 280px;
+	background: url(../img/visual_body.png) repeat-x top;
+	}
+#sec01 dl dd {
+	margin: 70px auto;
+	}
+#sec01 h2 {
+	margin: 40px 0 40px;
+	height: 70px;
+	overflow: hidden;
+	}
+#sec01 p {
+	display: inline;
+	border: 1px solid #333;
+	padding: 8px 10px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333;
+	}
+
+/* sec02 */
+#sec02 {
+	position: relative;
+	background: #000 url(../img/sec02_bg.jpg) top no-repeat;
+	widows: 100%;
+	height: 940px;
+	}
+#sec02 p {
+	line-height: 2.4em;
+	font-size: 18px;
+	}
+#sec02 h2:nth-of-type(1n) {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -206px;
+	}
+#sec02 p:nth-of-type(1n) {
+	display: block;
+	text-align: right;
+	position: absolute;
+	top: 220px;
+	left: 50%;
+	margin-left: -500px;
+	width: 1000px;
+	color: #ccc;
+	}
+#sec02 h2:nth-of-type(2n) {
+	position: absolute;
+	top: 789px;
+	left: 50%;
+	margin-left: -206px;
+	}
+#sec02 p:nth-of-type(2n) {
+	display: block;
+	text-align: left;
+	position: absolute;
+	top: 525px;
+	left: 50%;
+	margin-left: -500px;
+	width: 1000px;
+	color: #ccc;
+	}
+
+/* sec03 */
+#sec03 {
+	background: #fff url(../img/sec03_bg.jpg) top no-repeat;
+	widows: 100%;
+	height: 990px;
+	}
+#sec03 h2 {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto 80px;
+	}
+#sec03 dl dt {
+	margin-bottom: 80px;
+	padding-top: 70px;
+	}
+
+/* sec04 */
+#sec04 {
+	text-align: center;
+	background-color: #000;
+	widows: 100%;
+	height: auto;
+	}
+#sec04 h2 {
+	width: 1000px;
+	margin: 0 auto 45px;
+	}
+#sec04 ul {
+	margin: 0 auto 45px;
+	width: 1000px;
+	}
+#sec04 ul li {
+	float: left;
+	width: 200px;
+	height: auto;
+	}
+#sec04 ul li p {
+	text-align: left;
+	padding: 20px 5px 0;
+	color: #ccc;
+	}
+#sec04 ul li p span {
+	display: block;
+	padding-bottom: 20px;
+	}
+#sec04 dl dt {
+	padding: 20px 0 35px;
+	font-weight: bold;
+	color: #ccc;
+	}
+#sec04 dl dd {
+	padding-bottom: 120px;
+	color: #ccc;
+	}
+
+/* sec05 */
+#sec05 {
+	text-align: center;
+	background-color: #e3e6e9;
+	padding-bottom: 50px;
+	widows: 100%;
+	height: auto;
+	}
+#sec05 h2 {
+	width: 1000px;
+	margin: 0 auto 45px;
+	}
+#sec05 dl {
+	position: relative;
+	background: url(../img/mentor.jpg) no-repeat;
+	width: 1000px;
+	height: 710px;
+	margin: 0 auto;
+	}
+#sec05 dl dt {
+	position: absolute;
+	top: 235px;
+	left: 540px;
+	font-size: 18px;
+	font-weight: bold;
+	color: #fff;
+	}
+#sec05 dl dd {
+	position: absolute;
+	top: 287px;
+	left: 540px;
+	line-height: 2em;
+	text-align: left;
+	font-size: 12px;
+	color: #fff;
+	}
+
+/* sec06 */
+#sec06 {
+	text-align: center;
+	background: #000 url(../img/interview_bg.png) top no-repeat;
+	padding-bottom: 50px;
+	widows: 100%;
+	height: auto;
+	}
+#sec06 h2 {
+	width: 1000px;
+	margin: 0 auto 100px;
+	}
+#sec06 dl:nth-of-type(1n) ,
+#sec06 dl:nth-of-type(2n) {
+	width: 1000px;
+	margin: 0 auto 100px;
+	}
+#sec06 dl:nth-of-type(1n) dt {
+	float: left;
+	width: 333px;
+	height: auto;
+	color: #ccc;
+	}
+#sec06 dl:nth-of-type(1n) dd {
+	text-align: left;
+	float: left;
+	margin: 0 0 0 37px;
+	width: 630px;
+	height: auto;
+	color: #ccc;
+	}
+#sec06 dl:nth-of-type(2n) dt {
+	float: right;
+	width: 333px;
+	height: auto;
+	color: #ccc;
+	}
+#sec06 dl:nth-of-type(2n) dd {
+	text-align: left;
+	float: left;
+	margin: 0 37px 0 0;
+	width: 630px;
+	height: auto;
+	color: #ccc;
+	}
+#sec06 dl dd h3 {
+	background: url(../img/huki.png) left no-repeat;
+	margin-bottom: 20px;
+	padding: 12px 0 12px 80px;
+	font-size: 25px;
+	}
+#sec06 dl dd h3 span {
+	font-size: 12px;
+	font-weight: normal;
+	}
+
+/* sec07 */
+#sec07 {
+	text-align: center;
+	padding-bottom: 50px;
+	widows: 100%;
+	height: auto;
+	}
+#sec07 h2 {
+	width: 1000px;
+	margin: 0 auto 60px;
+	}
+#sec07 dl {
+	margin: 0 auto;
+	width: 1000px;
+	height: auto;
+	}
+#sec07 dl dt {
+	float: left;
+	width: 300px;
+	}
+#sec07 dl dd {
+	float: left;
+	text-align: left;
+	width: 700px;
+	}
+
+#sec07 p:last-child {
+	margin: 40px 0 80px;
+	height: 117px;
+	overflow: hidden;
+	}
+
+
+/* footer */
+#footer {
+	border-top: 1px solid #b4b4b9;
+	padding: 15px 0;
+	}
+#footer p {
+	color: #8f8f98;
+	font-size: 11px;
+	}
+
+
+/* modified: SNS */
+#head h1 a {
+	position: relative;
+	z-index: 6;
+}
+#head ul {
+	display: block;
+	position: absolute;
+	z-index: 5;
+	left: 45px;
+	top: 45px;
+	height: 30px;
+}
+#head ul li {
+	position: relative;
+	display: block;
+	width: 110px;
+	height: 32px;
+	line-height: 32px;
+
+	float: left;
+}
+
+.fb_iframe_widget, .twitter-share-button {
+	position: absolute !important;
+	left: 0;
+	bottom: 50%;
+	margin-bottom: -10px;
+}
+
+.fb_iframe_widget iframe {
+	min-width: 110px !important;
+	min-height: 20px !important;
+	width: 450px;
+	height: 400px;
+}
+
+/*
+#head .fb_iframe_widget > span {
+	vertical-align: top !important;
+}
+
+#head .fb_iframe_widget iframe {
+	visibility: visible !important;
+	min-width: 70px !important;
+	width: 1000px;
+	min-height: 20px !important;
+	height: 1000px;
+
+	display: block;
+	position: absolute;
+	left: 0px;
+	top: 8px;
+}
+
+#head .twitter-tweet-button {
+	margin-top: 7px;
+}
+*/

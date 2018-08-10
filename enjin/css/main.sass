@@ -1,0 +1,680 @@
+@import bourbon
+
+=sp
+    @media screen and ( max-width: 767px )
+        @content
+=spl
+    @media screen and ( max-width: 767px ) and ( orientation: landscape )
+        @content
+.pc
+    +sp
+        display: none
+.sp
+    display: none
+    +sp
+        display: initial
+=center
+    +position( absolute, 50% null null 50% )
+    +transform( translate( -50%, -50% ) )
+=bg( $url, $position: center center, $size: cover )
+    background-repeat: no-repeat
+    background-position: $position
+    background-size: $size
+    @if $url != null
+        background-image: url( $url )
+=clear
+    &:after
+        content: ""
+        display: table
+        clear: both
+
+$black: #58585B
+$yugothic: "游ゴシック", "Yu Gothic", "游ゴシック体", "YuGothic", "Meiryo UI", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+$lupin-speed: .2s
+=lupin($total, $delay: 0)
+    @for $i from 1 through $total
+        &:nth-child(#{$i}) img
+            +transition-delay( #{$i * $lupin-speed + $delay} )
+.lupin
+    img
+        opacity: 0
+#mv, #entry
+    &.on .lupin img
+        opacity: 1
+p span
+    opacity: 0
+    +transform( translateY( -30px ) )
+    +transition( all .6s )
+    &.on
+        opacity: 1
+        +transform( translateY( 0 ) )
+*
+    margin: 0
+    padding: 0
+    font-weight: bold
+    line-height: 100%
+    box-sizing: border-box
+    -webkit-font-smoothing: antialiased
+    -webkit-backface-visibility: hidden
+body
+    min-width: 1000px
+    color: white
+    font-family: $yugothic
+    font-size: 16px
+    text-align: center
+    background: white
+    +sp
+        min-width: initial
+        font-size: 12px
+h2
+    margin-bottom: 40px
+    font-family: Arial black, $yugothic
+    font-size: 34px
+    letter-spacing: 4px
+    +sp
+        margin-bottom: 25px
+        font-size: 24px
+        letter-spacing: 1px
+    span
+        margin-left: 5px
+        font-family: $yugothic
+        font-size: 26px
+        letter-spacing: 1px
+        +sp
+            font-size: 20px
+p
+    line-height: 240%
+    span
+        display: block
+        line-height: inherit
+a
+    text-decoration: none
+    cursor: pointer
+    &.button
+        display: inline-block
+        width: 525px
+        height: 115px
+        color: white
+        font-family: Arial black, $yugothic
+        font-size: 45px
+        line-height: 115px
+        letter-spacing: 4px
+        background: #E5AA23
+        border-radius: 40px
+        +transition( background .3s )
+        +sp
+            width: 200px
+            height: 45px
+            font-size: 17px
+            line-height: 45px
+            letter-spacing: 1px
+            border-radius: 45px
+        &:hover
+            background: #ffce61
+.sns
+    margin-bottom: 30px
+    a
+        display: inline-block
+        margin: 0 40px
+        width: 60px
+        height: 60px
+        +sp
+            margin: 0 20px
+            width: 40px
+            height: 40px
+        &:nth-child(1)
+            +bg( "../img/footer/left.png" )
+        &:nth-child(2)
+            +bg( "../img/footer/right.png" )
+#resizer
+    visibility: hidden
+    z-index: 100000
+    +position( fixed, 0 0 0 0 )
+    background: white
+    opacity: 0
+    +transition( visibility .6s, opacity .6s )
+    &.on
+        visibility: visible
+        opacity: 1
+        +transition( visibility 0s, opacity .6s )
+    img
+        +position( absolute, 50% null null 50% )
+        +transform( translate( -50%, -50% ) rotate( 0deg ) )
+        +keyframes( spin )
+            to
+                +transform( translate( -50%, -50% ) rotate( 720deg ) )
+        &:nth-child(1)
+            +animation( spin 1.6s forwards infinite ease )
+        &:nth-child(2)
+            +animation( spin 1.6s forwards .6s infinite ease )
+        &:nth-child(3)
+            +animation( spin 1.6s forwards 1.2s infinite ease )
+#switch
+    display: inline-block
+    z-index: 10000
+    +position( fixed, 20px 20px null null )
+    +transform( scale( .45 ) )
+    +transition( all .6s )
+    width: 50px
+    height: 44px
+    opacity: 0
+    +sp
+        top: 10px
+        right: 10px
+    &.fadedIn
+        opacity: 1
+    &:after
+        content: ""
+        display: block
+        +position( absolute, 50% null null 50% )
+        width: 84px
+        height: 84px
+        margin: -46px 0 0 -46px
+        border-radius: 50%
+        border: 4px solid transparent
+        transition: all .75s
+    span
+        display: inline-block
+        +position( absolute, null nul null 0 )
+        +transition( all .4s )
+        width: 100%
+        height: 4px
+        background-color: white
+        border-radius: 4px
+        &:nth-of-type(1)
+            top: 0
+        &:nth-of-type(2)
+            top: 20px
+        &:nth-of-type(3)
+            bottom: 0
+    &.on
+        &:after
+            +animation( active-menu12 .4s .25s forwards )
+            +keyframes( active-menu12 )
+                0%
+                    border-color: transparent
+                    +transform( rotate( 0 ) )
+                25%
+                    border-color: transparent white transparent transparent
+                50%
+                    border-color: transparent white white transparent
+                75%
+                    border-color: transparent white white white
+                100%
+                    border-color: white
+                    +transform( rotate( -680deg ) )
+        span
+            &:nth-of-type(1)
+                +transform( translateY( 20px ) rotate( -45deg ) )
+            &:nth-of-type(2)
+                left: 60%
+                opacity: 0
+                +animation( active-menu12-bar02 .8s forwards )
+                +keyframes( active-menu12-bar02 )
+                    100%
+                        height: 0
+            &:nth-of-type(3)
+                +transform( translateY( -20px ) rotate( 45deg ) )
+#menu
+    visibility: hidden
+    z-index: 1000
+    +position( fixed, 0 0 0 0 )
+    background: rgba( 0, 0, 0, 0.5 )
+    opacity: 0
+    +transition( visibility .6s, opacity .6s )
+    &.on
+        visibility: visible
+        opacity: 1
+        +transition( visibility 0, opacity .6s )
+        #sidebar
+            +transform( translateX( 0 ) )
+            opacity: 1
+    #sidebar
+        +position( fixed, 0 0 0 null )
+        +transform( translateX( 100% ) )
+        width: 320px
+        background: rgba( 0, 0, 0, .6 )
+        opacity: 0
+        +transition( all .6s )
+        +sp
+            width: 100vw
+        ul
+            margin: 100px 0 60px
+            list-style: none
+            li
+                margin: 25px 0
+                a
+                    &.about, &.message, &.flow
+                        font-family: Arial black, $yugothic
+                    span
+                        font-family: $yugothic
+        .sns
+            a
+                margin: 0 20px
+#pagetop
+    z-index: 1000
+    +position( fixed, null 30px 30px null )
+    width: 40px
+    height: 40px
+    +bg( "../img/pagetop.png" )
+    opacity: 0
+    cursor: pointer
+    +transition( all .6s )
+    +sp
+        +position( fixed, null 20px 20px null )
+        width: 30px
+        height: 30px
+    &.on
+        opacity: 1
+#mv
+    position: relative
+    width: 100%
+    height: 100vh
+    +bg( "../img/mv.jpg" )
+    +sp
+        +bg( "../img/mv_sp.jpg" )
+    &.on
+        #opening
+            +animation( fadeOut 4s forwards 3.6s )
+            +keyframes( fadeOut )
+                40%
+                    visibility: visible
+                    background: black
+                    opacity: 1
+                100%
+                    visibility: hidden
+                    background: black
+                    opacity: 0
+            img
+                +keyframes( fadeInSpin )
+                    to
+                        +transform( translate( -50%, -50% ) rotate( 720deg ) )
+                        opacity: 1
+                +keyframes( fadeInScale )
+                    to
+                        +transform( translate( -50%, -50% ) rotate( 0deg ) scale( 1 ) )
+                        opacity: 1
+                &:nth-child(1)
+                    +animation( fadeInSpin 1.2s forwards ease-out )
+                &:nth-child(2)
+                    +animation( fadeInSpin 1.2s forwards .4s ease-out )
+                &:nth-child(3)
+                    +animation( fadeInSpin 1.2s forwards .8s ease-out )
+                &:nth-child(4)
+                    +animation( fadeInScale .6s forwards 2.4s ease )
+        .lupin td
+            +lupin( 12, 6.8s )
+        .scroll
+            opacity: 1
+            +transition( opacity .6s )
+            +transition-delay( 9.6s )
+    #opening
+        visibility: visible
+        z-index: 1000
+        +position( fixed, 0 0 0 0 )
+        background: white
+        opacity: 1
+        img
+            +position( absolute, 50% null null 50% )
+            +transform( translate( -50%, -50% ) rotate( 0deg ) )
+            opacity: 0
+            &:nth-child(4)
+                +transform( translate( -50%, -50% ) rotate( 0deg ) scale( .8 ) )
+    .logo
+        +position( absolute, null null 50% 50% )
+        +transform( translate( -50%, 40px ) )
+        width: 359px
+        height: 350px
+        +bg( "../img/mv/logo.png" )
+        +sp
+            width: 205px
+            height: 200px
+    .lupin
+        +position( absolute, 50% null null 50% )
+        +transform( translate( -50%, 15vh ) )
+        td
+            &:nth-child(2) img
+                margin-left: -2px
+                +sp
+                    margin-left: -3px
+            &:nth-child(3) img
+                margin: 2px 6px 0
+                +sp
+                    margin: 2px 3px 0
+            &:nth-child(4) img
+                +sp
+                    margin: 1px 0 0 -2px
+            &:nth-child(5) img
+                margin: 40px 10px 0 0
+                +sp
+                    margin: 14px 4px 0 -3px
+            &:nth-child(7) img
+                +sp
+                    margin: 0 -2px
+            &:nth-child(8) img
+                margin: 3px 0 0 8px
+                +sp
+                    margin: 1px 0 0 2px
+    .scroll
+        +position( absolute, 50% null null 50% )
+        +transform( translate( -50%, 30vh ) )
+        padding-bottom: 40px
+        font-family: Arial black, $yugothic
+        font-size: 20px
+        letter-spacing: 2px
+        opacity: 0
+        +sp
+            font-size: 16px
+        &:after
+            content: ""
+            display: block
+            +position( absolute, null null 0 50% )
+            +transform( translateX( -50% ) )
+            width: 20px
+            height: 13px
+            +bg( "../img/mv/arrow.png" )
+            opacity: 1
+            +animation( flash 2s forwards infinite )
+            +keyframes( flash )
+                20%
+                    opacity: 1
+                50%
+                    opacity: 0
+                80%
+                    opacity: 1
+                100%
+                    opacity: 1
+.gears
+    +position( absolute, 0 0 null 0 )
+    i
+        display: block
+        width: 186px
+        height: 200px
+        +bg( "../img/gear.png" )
+=gear( $name, $top, $scale, $duration )
+    +position( absolute, $top null null 50% )
+    +transform( translateX( -50% ) rotate( 0deg ) )
+    width: 186px * $scale
+    height: 200px * $scale
+    +animation( gear#{$name} $duration forwards infinite linear )
+    +keyframes( gear#{$name} )
+        to
+            @if $scale == .55 or $scale == .25
+                +transform( translateX( -50% ) rotate( -360deg ) )
+            @else
+                +transform( translateX( -50% ) rotate( 360deg ) )
+#about
+    z-index: 20
+    position: relative
+    padding-top: 250px
+    height: 600px
+    background-color: rgba( 218, 104, 40, .5 )
+    +bg( "../img/about/bg.png", center center, contain )
+    +sp
+        height: auto
+        padding: 40px 0
+        background-color: rgba( 218, 104, 40, 1 )
+    i
+        +sp
+            display: none
+        &:nth-child(1)
+            +gear( a1, 40px, .55, 6s )
+            margin-left: 240px
+            +sp
+                display: block
+                +gear( a1sp, 10px, .35, 9s )
+                margin-left: 110px
+        &:nth-child(2)
+            +gear( a2, 80px, 1, 12s )
+            margin-left: -500px
+        &:nth-child(3)
+            +gear( a3, 200px, 1, 12s )
+            margin-left: 400px
+            +sp
+                display: block
+                +gear( a3sp, 290px, .25, 6s )
+                margin-left: -120px
+        &:nth-child(4)
+            +gear( a4, 420px, .55, 6s)
+            margin-left: -440px
+        &:nth-child(5)
+            +gear( a5, 480px, .75, 9s )
+            margin-left: 520px
+#message
+    z-index: 10
+    position: relative
+    padding-top: 50px
+    height: 700px
+    background-color: rgba( 229, 170, 35, .7 )
+    +bg( "../img/message/bg.png", center center, contain )
+    +sp
+        padding: 40px 0
+        height: auto
+        background-color: rgba( 229, 170, 35, 1 )
+    i
+        +sp
+            display: none
+        &:nth-child(1)
+            +gear( m1, 100px, .55, 6s )
+            margin-left: 440px
+            +sp
+                display: block
+                +gear( m1sp, 20px, .25, 6s )
+                margin-left: 120px
+        &:nth-child(2)
+            +gear( m2, 120px, .75, 9s )
+            margin-left: -420px
+        &:nth-child(3)
+            +gear( m3, 420px, 1, 12s )
+            margin-left: 480px
+            +sp
+                display: block
+                +gear( m3sp, 430px, .35, 9s )
+                margin-left: -120px
+        &:nth-child(4)
+            +gear( m4, 540px, .55, 6s )
+            margin-left: -540px
+            +sp
+                display: block
+                +gear( m4sp, 720px, .25, 6s )
+                margin-left: 120px
+#flow
+    padding: 80px 0 40px
+    width: 100%
+    background-color: #2F5A9F
+    +sp
+        padding: 40px 0 60px
+    h2
+        margin-bottom: 60px
+        +sp
+            margin-bottom: 30px
+    .map
+        position: relative
+        margin: 0 auto
+        width: 1280px
+        height: 926px
+        +sp
+            width: 318px
+            height: 536px
+        .bg
+            z-index: 100
+            +position( absolute, 50% null null 50% )
+            +transform( translate( -50%, -50% ) )
+            width: 1280px
+            height: 926px
+            +sp
+                width: 318px
+                height: 536px
+        .swirl
+            z-index: 90
+            +position( absolute, 50% 200px null null )
+            +transform( translateY( -50% ) rotate( 0deg ) )
+            width: 606px
+            +sp
+                +position( absolute, 50% auto null 50% )
+                +transform( translate( -50%, -50% ) rotate( 0deg ) )
+                width: 200px
+            &.pc
+                +animation( swirl 12s forwards infinite linear )
+                +keyframes( swirl )
+                    to
+                        +transform( translateY( -50% ) rotate( 360deg ) )
+            &.sp
+                +animation( swirlsp 6s forwards infinite linear )
+                +keyframes( swirlsp )
+                    to
+                        +transform( translate( -50%, -50% ) rotate( 360deg ) )
+#recom
+    position: relative
+    +sp
+        padding: 40px 0
+        background: #5B4286
+    .bg
+        display: block
+        width: 100%
+        +sp
+            display: none
+    .content
+        +position( absolute, 50% null null 50% )
+        +transform( translate( -50%, -50% ) )
+        +sp
+            +position( relative, auto null null auto )
+            +transform( translate( 0 ) )
+        h2
+            margin-bottom: 50px
+            font-family: $yugothic
+            +sp
+                margin-bottom: 20px
+                font-size: 20px
+        p
+            line-height: 300%
+            font-size: 18px
+            text-align: left
+            +sp
+                margin-left: -115px
+                padding-left: 50vw
+                font-size: 14px
+                line-height: 240%
+#entry
+    position: relative
+    +sp
+        padding: 30px 0
+        background: rgba( 40, 148, 72, .7 )
+    &.on .content .lupin
+        &:nth-child(1) td
+            +lupin( 9 )
+        &:nth-child(2) td
+            +lupin( 13, 9 * $lupin-speed )
+    .bg
+        display: block
+        width: 100%
+        +sp
+            display: none
+    .content
+        +position( absolute, 50% null null 50% )
+        +transform( translate( -50%, -50% ) )
+        +sp
+            +position( relative, auto null null auto )
+            +transform( translate( 0 ) )
+        .lupin
+            margin: 0 auto
+            &:nth-child(1)
+                margin-bottom: 30px
+                +sp
+                    margin-top: 40px
+                    margin-bottom: 10px
+                td
+                    &:nth-child(1) img
+                        +sp
+                            margin-top: -1px
+                    &:nth-child(2) img
+                        margin: 0 5px
+                        +sp
+                            margin: 0 2px
+                    &:nth-child(4) img
+                        +sp
+                            margin: 0 -3px 0 -1px
+                    &:nth-child(6) img
+                        +sp
+                            margin: 1px 0 0 -2px
+                    &:nth-child(8) img
+                        +sp
+                            margin: 0 -2px
+            &:nth-child(2)
+                margin-bottom: 100px
+                +sp
+                    margin-bottom: 60px
+                td
+                    &:nth-child(1) img
+                        margin-right: 5px
+                        +sp
+                            margin-right: 0
+                    &:nth-child(2) img
+                        margin-top: 4px
+                        +sp
+                            margin-top: 0
+                    &:nth-child(3) img
+                        margin-top: -6px
+                        +sp
+                            margin-top: -2px
+                    &:nth-child(5) img
+                        margin: -5px 8px 0
+                        +sp
+                            margin: -1px 0 0 2px
+                    &:nth-child(7) img
+                        margin: 0 -4px 0 4px
+                        +sp
+                            margin: -1px -4px 0 0
+                    &:nth-child(9) img
+                        margin-left: -12px
+                        +sp
+                            margin-left: -6px
+                    &:nth-child(11) img
+                        margin: 0 5px
+                        +sp
+                            margin: 0 0
+#application
+    padding: 80px 0 100px
+    color: $black
+    +sp
+        padding: 60px 0 80px
+    h2
+        margin-bottom: 60px
+        font-family: $yugothic
+        +sp
+            margin-bottom: 30px
+    p
+        margin: 0 auto 120px
+        width: 640px
+        font-size: 18px
+        text-align: left
+        white-space: nowrap
+        +sp
+            margin-bottom: 40px
+            width: auto
+            font-size: 14px
+            text-align: center
+        i.sp
+            +sp
+                display: block
+footer
+    padding: 40px 0
+    background: #404041
+    +sp
+        padding: 20px 0 30px
+    nav
+        margin-bottom: 40px
+        ul
+            li
+                display: inline-block
+                margin: 0 20px
+                +sp
+                    display: block
+                    margin: 15px 0
+                .about, .message, .flow
+                    font-family: Arial black, $yugothic
+                span
+                    margin-left: 5px
+                    font-family: $yugothic
+    #copyright
+        font-family: Arial black, $yugothic

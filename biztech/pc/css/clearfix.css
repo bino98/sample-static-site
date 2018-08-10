@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+/*clearfix setup */
+
+#sec04 ul:after,
+#sec05 ul:after,
+#sec06 dl:after,
+#sec07 dl:after{
+	content: ".";
+	font-size: 0.1em;
+	line-height: 0;
+	display: block;
+	height: 0.1px;
+	visibility: hidden;
+	clear: both;
+	zoom:1;
+	}
+#sec04 ul,
+#sec05 ul,
+#sec06 dl,
+#sec07 dl{
+	zoom:1;
+	}
